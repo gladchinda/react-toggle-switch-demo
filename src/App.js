@@ -11,11 +11,11 @@ const ACTIVITIES = [
 
 class App extends Component {
 
-	state = { enabled: false, only: [] }
+	state = { enabled: false, only: ACTIVITIES.map(snakeCase) }
 
 	toggleNotifications = ({ enabled }) => {
 		const { only } = this.state;
-		this.setState({ enabled, only: enabled ? only : [] });
+		this.setState({ enabled, only: enabled ? only : ACTIVITIES.map(snakeCase) });
 	}
 
 	toggleActivityEnabled = activity => ({ enabled }) => {
