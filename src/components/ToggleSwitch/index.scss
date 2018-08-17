@@ -1,23 +1,34 @@
-/* COLOR VARIABLES */
+/* DEFAULT COLOR VARIABLES */
 
 $ball-color: #ffffff;
 $active-color: #62c28e;
 $inactive-color: #cccccc;
 
-/* SIZING VARIABLES */
+/* DEFAULT SIZING VARIABLES */
 
 $switch-size: 32px;
 $ball-spacing: 2px;
 $stretch-factor: 1.625;
-$ball-size: $switch-size - ($ball-spacing * 2);
-$ball-slide-size: ($switch-size * ($stretch-factor - 1) + $ball-spacing);
+
+/* DEFAULT CLASS VARIABLE */
+
+$switch-class: 'switch-toggle';
 
 /* STYLES */
 
-.switch-toggle {
-    $self: &;
+@mixin switch($size: $switch-size, $spacing: $ball-spacing, $stretch: $stretch-factor, $color: $active-color, $class: $switch-class) {
+    // SELECTOR VARIABLES
+    $self: '.' + $switch-class;
     $on: #{$self}--on;
     $off: #{$self}--off;
+    // SWITCH VARIABLES
+    $active-color: $color;
+    $switch-size: $size;
+    $ball-spacing: $spacing;
+    $stretch-factor: $stretch;
+    $ball-size: $switch-size - ($ball-spacing * 2);
+    $ball-slide-size: ($switch-size * ($stretch-factor - 1) + $ball-spacing);
+    // SWITCH STYLES
     height: $switch-size;
     width: $switch-size * $stretch-factor;
     cursor: pointer !important;
@@ -62,6 +73,21 @@ $ball-slide-size: ($switch-size * ($stretch-factor - 1) + $ball-spacing);
         }
         &::after {
             transform: translateX($ball-spacing);
+        }
+    }
+}
+
+.switch-toggle {
+    $self: &;
+    @at-root {
+        .switch {
+            $switch: &;
+            &#{$switch}--default>#{$self} {
+                @include switch;
+            }
+            &#{$switch}--smalldark>#{$self} {
+                @include switch($color: lighten(#000000, 40%), $size: 20px, $stretch: 1.75);
+            }
         }
     }
 }
