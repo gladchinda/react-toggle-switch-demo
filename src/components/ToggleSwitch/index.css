@@ -11,6 +11,7 @@
   display: inline-block; }
   .switch.switch--default > .switch-toggle.switch-toggle--on::before, .switch.switch--default > .switch-toggle.switch-toggle--on::after, .switch.switch--default > .switch-toggle.switch-toggle--off::before, .switch.switch--default > .switch-toggle.switch-toggle--off::after {
     content: '';
+    left: 0;
     position: absolute !important; }
   .switch.switch--default > .switch-toggle.switch-toggle--on::before, .switch.switch--default > .switch-toggle.switch-toggle--off::before {
     height: inherit;
@@ -35,23 +36,24 @@
   .switch.switch--default > .switch-toggle.switch-toggle--off::after {
     transform: translateX(2px); }
 
-.switch.switch--smalldark > .switch-toggle {
+.switch.switch--graphite-small > .switch-toggle {
   height: 20px;
-  width: 35px;
+  width: 32.5px;
   cursor: pointer !important;
   user-select: none !important;
   position: relative !important;
   display: inline-block; }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--on::before, .switch.switch--smalldark > .switch-toggle.switch-toggle--on::after, .switch.switch--smalldark > .switch-toggle.switch-toggle--off::before, .switch.switch--smalldark > .switch-toggle.switch-toggle--off::after {
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--on::before, .switch.switch--graphite-small > .switch-toggle.switch-toggle--on::after, .switch.switch--graphite-small > .switch-toggle.switch-toggle--off::before, .switch.switch--graphite-small > .switch-toggle.switch-toggle--off::after {
     content: '';
+    left: 0;
     position: absolute !important; }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--on::before, .switch.switch--smalldark > .switch-toggle.switch-toggle--off::before {
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--on::before, .switch.switch--graphite-small > .switch-toggle.switch-toggle--off::before {
     height: inherit;
     width: inherit;
     border-radius: 10px;
     will-change: background;
     transition: background .4s .3s ease-out; }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--on::after, .switch.switch--smalldark > .switch-toggle.switch-toggle--off::after {
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--on::after, .switch.switch--graphite-small > .switch-toggle.switch-toggle--off::after {
     top: 2px;
     height: 16px;
     width: 16px;
@@ -59,11 +61,11 @@
     background: #ffffff !important;
     will-change: transform;
     transition: transform .4s ease-out; }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--on::before {
-    background: #666666 !important; }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--on::after {
-    transform: translateX(17px); }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--off::before {
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--on::before {
+    background: gray !important; }
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--on::after {
+    transform: translateX(14.5px); }
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--off::before {
     background: #cccccc !important; }
-  .switch.switch--smalldark > .switch-toggle.switch-toggle--off::after {
+  .switch.switch--graphite-small > .switch-toggle.switch-toggle--off::after {
     transform: translateX(2px); }

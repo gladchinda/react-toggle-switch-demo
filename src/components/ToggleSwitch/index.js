@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import isString from 'lodash/isString';
 import React, { Component } from 'react';
 import isBoolean from 'lodash/isBoolean';
 import isFunction from 'lodash/isFunction';
@@ -39,16 +40,22 @@ class ToggleSwitch extends Component {
 
 	render() {
 		const { enabled } = this.state;
-		const { enabled: _enabled, onClick, onStateChanged, ...restProps } = this.props;
+		const { enabled: _enabled, theme, onClick, className, onStateChanged, ...restProps } = this.props;
+		const switchTheme = (theme && isString(theme)) ? theme : 'default';
 
 		const switchClasses = classnames(
+			`switch switch--${switchTheme}`,
+			className
+		)
+
+		const togglerClasses = classnames(
 			'switch-toggle',
 			`switch-toggle--${enabled ? 'on' : 'off'}`
 		)
 
 		return (
-			<div onClick={this.toggleSwitch} {...restProps}>
-				<div className={switchClasses}></div>
+			<div className={switchClasses} onClick={this.toggleSwitch} {...restProps}>
+				<div className={togglerClasses}></div>
 			</div>
 		)
 	}
@@ -56,6 +63,7 @@ class ToggleSwitch extends Component {
 }
 
 ToggleSwitch.propTypes = {
+	theme: PropTypes.string,
 	enabled: PropTypes.oneOfType([
 		PropTypes.bool,
 		PropTypes.func

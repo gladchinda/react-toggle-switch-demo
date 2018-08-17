@@ -40,6 +40,7 @@ $switch-class: 'switch-toggle';
         &::before,
         &::after {
             content: '';
+            left: 0;
             position: absolute !important;
         }
         &::before {
@@ -85,8 +86,8 @@ $switch-class: 'switch-toggle';
             &#{$switch}--default>#{$self} {
                 @include switch;
             }
-            &#{$switch}--smalldark>#{$self} {
-                @include switch($color: lighten(#000000, 40%), $size: 20px, $stretch: 1.75);
+            &#{$switch}--graphite-small>#{$self} {
+                @include switch($color: gray, $size: 20px);
             }
         }
     }
