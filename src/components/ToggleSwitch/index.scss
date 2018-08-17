@@ -1,0 +1,67 @@
+/* COLOR VARIABLES */
+
+$ball-color: #ffffff;
+$active-color: #62c28e;
+$inactive-color: #cccccc;
+
+/* SIZING VARIABLES */
+
+$switch-size: 32px;
+$ball-spacing: 2px;
+$stretch-factor: 1.625;
+$ball-size: $switch-size - ($ball-spacing * 2);
+$ball-slide-size: ($switch-size * ($stretch-factor - 1) + $ball-spacing);
+
+/* STYLES */
+
+.switch-toggle {
+    $self: &;
+    $on: #{$self}--on;
+    $off: #{$self}--off;
+    height: $switch-size;
+    width: $switch-size * $stretch-factor;
+    cursor: pointer !important;
+    user-select: none !important;
+    position: relative !important;
+    display: inline-block;
+    &#{$on},
+    &#{$off} {
+        &::before,
+        &::after {
+            content: '';
+            position: absolute !important;
+        }
+        &::before {
+            height: inherit;
+            width: inherit;
+            border-radius: $switch-size / 2;
+            will-change: background;
+            transition: background .4s .3s ease-out;
+        }
+        &::after {
+            top: $ball-spacing;
+            height: $ball-size;
+            width: $ball-size;
+            border-radius: $ball-size / 2;
+            background: $ball-color !important;
+            will-change: transform;
+            transition: transform .4s ease-out;
+        }
+    }
+    &#{$on} {
+        &::before {
+            background: $active-color !important;
+        }
+        &::after {
+            transform: translateX($ball-slide-size);
+        }
+    }
+    &#{$off} {
+        &::before {
+            background: $inactive-color !important;
+        }
+        &::after {
+            transform: translateX($ball-spacing);
+        }
+    }
+}

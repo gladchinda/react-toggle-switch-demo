@@ -1,0 +1,35 @@
+/* COLOR VARIABLES */
+/* SIZING VARIABLES */
+/* STYLES */
+.switch-toggle {
+  height: 32px;
+  width: 52px;
+  cursor: pointer !important;
+  user-select: none !important;
+  position: relative !important;
+  display: inline-block; }
+  .switch-toggle.switch-toggle--on::before, .switch-toggle.switch-toggle--on::after, .switch-toggle.switch-toggle--off::before, .switch-toggle.switch-toggle--off::after {
+    content: '';
+    position: absolute !important; }
+  .switch-toggle.switch-toggle--on::before, .switch-toggle.switch-toggle--off::before {
+    height: inherit;
+    width: inherit;
+    border-radius: 16px;
+    will-change: background;
+    transition: background .4s .3s ease-out; }
+  .switch-toggle.switch-toggle--on::after, .switch-toggle.switch-toggle--off::after {
+    top: 2px;
+    height: 28px;
+    width: 28px;
+    border-radius: 14px;
+    background: #ffffff !important;
+    will-change: transform;
+    transition: transform .4s ease-out; }
+  .switch-toggle.switch-toggle--on::before {
+    background: #62c28e !important; }
+  .switch-toggle.switch-toggle--on::after {
+    transform: translateX(22px); }
+  .switch-toggle.switch-toggle--off::before {
+    background: #cccccc !important; }
+  .switch-toggle.switch-toggle--off::after {
+    transform: translateX(2px); }
