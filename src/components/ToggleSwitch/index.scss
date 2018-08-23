@@ -82,18 +82,14 @@ $switch-class: 'switch-toggle';
     @return str-slice(nth(nth(selector-parse($selector), 1), 1), 2);
 }
 
-.switch-toggle {
+.switch {
     $self: &;
-    $class: get-switch-class($self);
-    @at-root {
-        .switch {
-            $switch: &;
-            &#{$switch}--default>#{$self} {
-                @include switch($class: $class);
-            }
-            &#{$switch}--graphite-small>#{$self} {
-                @include switch($color: gray, $size: 20px, $class: $class);
-            }
-        }
+    $toggle: #{$self}-toggle;
+    $class: get-switch-class($toggle);
+    &#{$self}--default>#{$toggle} {
+        @include switch($class: $class);
+    }
+    &#{$self}--graphite-small>#{$toggle} {
+        @include switch($color: gray, $size: 20px, $class: $class);
     }
 }
