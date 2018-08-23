@@ -18,7 +18,7 @@ $switch-class: 'switch-toggle';
 
 @mixin switch($size: $switch-size, $spacing: $ball-spacing, $stretch: $stretch-factor, $color: $active-color, $class: $switch-class) {
     // SELECTOR VARIABLES
-    $self: '.' + $switch-class;
+    $self: '.' + $class;
     $on: #{$self}--on;
     $off: #{$self}--off;
     // SWITCH VARIABLES
@@ -78,16 +78,21 @@ $switch-class: 'switch-toggle';
     }
 }
 
+@function get-switch-class($selector) {
+    @return str-slice(nth(nth(selector-parse($selector), 1), 1), 2);
+}
+
 .switch-toggle {
     $self: &;
+    $class: get-switch-class($self);
     @at-root {
         .switch {
             $switch: &;
             &#{$switch}--default>#{$self} {
-                @include switch;
+                @include switch($class: $class);
             }
             &#{$switch}--graphite-small>#{$self} {
-                @include switch($color: gray, $size: 20px);
+                @include switch($color: gray, $size: 20px, $class: $class);
             }
         }
     }
