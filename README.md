@@ -28,12 +28,12 @@ yarn start
 
 You can also get a [live demo on Code Sandbox][code-demo].
 
-[![Edit toggle-switch](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/voqzpx1p3)
+[![Edit toggle-switch](https://codesandbox.io/static/img/play-codesandbox.svg)][code-demo]
 
 
 [react-docs]: https://reactjs.org/docs/
 [react]: https://reactjs.org/
-[code-demo]: https://codesandbox.io/s/voqzpx1p3
+[code-demo]: https://codesandbox.io/s/7km5n36vzx
 [node]: https://nodejs.org/en/
 [npm]: https://npmjs.com/
 [yarn]: https://yarnpkg.com/
