@@ -1,6 +1,8 @@
 # Building Toggle Switch (React Demo)
 
-This project contains a demo source code showing how to build a custom toggle switch component in a [React][react] application, which can be used as a substitute for controls like radios and checkboxes. Prior experience working with the React framework is required for complete understanding of the demo code. You can checkout the [docs][react-docs] to learn more about React.
+This project contains a demo source code showing how to build a custom toggle switch component for a [React][react] application, which can be used as a substitute for controls like checkboxes.
+
+Prior experience working with the React framework is required for complete understanding of the demo code. You can checkout the [docs][react-docs] to learn more about React.
 
 Here is a screenshot of the demo React application:
 
