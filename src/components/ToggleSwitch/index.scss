@@ -79,6 +79,10 @@ $switch-class: 'switch-toggle';
 }
 
 @function get-switch-class($selector) {
+    // First parse the selector using `selector-parse`
+    // Extract the first selector in the first list using `nth` twice
+    // Extract the first simple selector using `simple-selectors` and `nth`
+    // Extract the class name using `str-slice`
     @return str-slice(nth(simple-selectors(nth(nth(selector-parse($selector), 1), 1)), 1), 2);
 }
 
@@ -86,10 +90,15 @@ $switch-class: 'switch-toggle';
     $self: &;
     $toggle: #{$self}-toggle;
     $class: get-switch-class($toggle);
+    // default theme
     &#{$self}--default>#{$toggle} {
+        // Always pass the $class to the mixin
         @include switch($class: $class);
     }
+    // graphite-small theme
     &#{$self}--graphite-small>#{$toggle} {
+        // A smaller switch with a `gray` active color
+        // Always pass the $class to the mixin
         @include switch($color: gray, $size: 20px, $class: $class);
     }
 }

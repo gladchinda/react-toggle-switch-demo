@@ -8,18 +8,17 @@ import './index.css';
 
 class ToggleSwitch extends Component {
 
-  state = {
-    enabled: this.enabledFromProps()
-  }
+  state = { enabled: this.enabledFromProps() }
 
-  isEnabled() {
-    return this.state.enabled;
-  }
+  isEnabled = () => this.state.enabled
 
   enabledFromProps() {
     let { enabled } = this.props;
+
+    // If enabled is a function, invoke the function
     enabled = isFunction(enabled) ? enabled() : enabled;
 
+    // Return enabled if it is a boolean, otherwise false
     return isBoolean(enabled) && enabled;
   }
 
@@ -31,8 +30,11 @@ class ToggleSwitch extends Component {
 
     this.setState({ enabled: !this.state.enabled }, () => {
       const state = this.state;
+
+      // Augument the event object with SWITCH_STATE
       const switchEvent = Object.assign(evt, { SWITCH_STATE: state });
 
+      // Execute the callback functions
       isFunction(onClick) && onClick(switchEvent);
       isFunction(onStateChanged) && onStateChanged(state);
     });
@@ -40,7 +42,11 @@ class ToggleSwitch extends Component {
 
   render() {
     const { enabled } = this.state;
+    
+    // Isolate special props and store the remaining as restProps
     const { enabled: _enabled, theme, onClick, className, onStateChanged, ...restProps } = this.props;
+
+    // Use default as a fallback theme if valid theme is not passed
     const switchTheme = (theme && isString(theme)) ? theme : 'default';
 
     const switchClasses = classnames(

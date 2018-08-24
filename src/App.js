@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Switch from './components/ToggleSwitch';
 import './App.css';
 
+// List of activities that can trigger notifications
 const ACTIVITIES = [
   'News Feeds', 'Likes and Comments', 'Live Stream', 'Upcoming Events',
   'Friend Requests', 'Nearby Friends', 'Birthdays', 'Account Sign-In'
@@ -11,6 +12,7 @@ const ACTIVITIES = [
 
 class App extends Component {
 
+  // Initialize app state, all activities are enabled by default
   state = { enabled: false, only: ACTIVITIES.map(snakeCase) }
 
   toggleNotifications = ({ enabled }) => {
