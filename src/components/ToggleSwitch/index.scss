@@ -79,7 +79,7 @@ $switch-class: 'switch-toggle';
 }
 
 @function get-switch-class($selector) {
-    @return str-slice(nth(nth(selector-parse($selector), 1), 1), 2);
+    @return str-slice(nth(simple-selectors(nth(nth(selector-parse($selector), 1), 1)), 1), 2);
 }
 
 .switch {
